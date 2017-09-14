@@ -1,0 +1,2 @@
+float get_hamming(unsigned char* input, int len, int keysize);
+int compute_hamming(unsigned char* word1, unsigned char* word2, int len);
