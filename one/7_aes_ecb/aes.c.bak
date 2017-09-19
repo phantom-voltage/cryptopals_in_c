@@ -39,7 +39,7 @@ int main(int argc, char** argv)
 
     }
     
-    input = (char*)calloc(count, sizeof(char));
+    input = (char*)calloc(count, sizeof(char*)*count);
 
     rewind(fp);
 
@@ -59,6 +59,10 @@ int main(int argc, char** argv)
     /* Do the conversion */
     r64tob(input, aes_input, strlen(input));
 	
+	/* Init the vector */
+	unsigned char iv[AES_BLOCK_SIZE];
+	memset(iv, 0x00, AES_BLOCK_SIZE);
+	
     char* dec_out = (char*)malloc(sizeof(char)*numBytes);
     unsigned char* temp = (unsigned char*)malloc(sizeof(unsigned char)*16);
 
@@ -68,13 +72,14 @@ int main(int argc, char** argv)
 	AES_KEY enc_key, dec_key;
 
 	/* AES-128 bit CBC Decryption */
+	memset(iv, 0x00, AES_BLOCK_SIZE); // don't forget to set iv vector again, else you can't decrypt data properly
 	AES_set_decrypt_key(aes_key, 16*8, &dec_key); // Size of key is in bits
 
     for(int i = 0; i < (numBytes/16); i++)
     {
-        //AES_cbc_encrypt(aes_input+i*16, temp, 16, &dec_key, iv, AES_DECRYPT);
-        AES_ecb_encrypt(aes_input+i*16, temp, &dec_key, AES_DECRYPT);
+        AES_cbc_encrypt(aes_input+i*16, temp, 16, &dec_key, iv, AES_DECRYPT);
         strncat(dec_out, temp, 16);
+	    memset(iv, 0x00, AES_BLOCK_SIZE); // don't forget to set iv vector again, else you can't decrypt data properly
         
     }
 
