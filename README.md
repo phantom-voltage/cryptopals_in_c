@@ -12,18 +12,13 @@ These were all compiled using GCC on an x86_64 architecture. I used
 unsigned chars a lot, I might go back and change them to uint8_t at some
 point, just for compatibility with other machines.
 
+## Libraries
 
-### Headers
-
-Headers are in a single header file in the root directory, as much of the
-code is reused. Use link.sh to create the symlinks for each challenge set. 
+Besides the standard C libraries, and the ones I've made myself, I've included PCG for a psuedo random number generator.
 
 ### Actually Compiling 
 
-`gcc -o main main.c`
-
-Challenges 7+ might require
-
-`gcc -o main main.c -lcrypto`
+I've updated the project to use makefiles, so just cd to the directory and type make. The executable produced will be named main in all problems.
 
 
+`make`
