@@ -3,7 +3,7 @@
 #include <string.h>
 
 
-#include "../header/conversion.h"
+#include "conversion.h"
  
 #include <openssl/aes.h>
 

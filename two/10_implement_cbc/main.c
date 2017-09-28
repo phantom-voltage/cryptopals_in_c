@@ -3,10 +3,12 @@
 #include <string.h>
 #include <stdint.h>
 
-#include "../header/pad.h"
-#include "../header/aes_cbc.h"
-
 #include <openssl/aes.h>
+
+#include "pad.h"
+#include "aes_cbc.h"
+#include "conversion.h"
+
 
 
 void print_dec(char* title, uint8_t* data, size_t n);

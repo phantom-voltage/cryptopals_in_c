@@ -3,8 +3,7 @@
 #include <string.h>
 #include <ctype.h>
 
-#include "../header/xor.h"
-
+#include "xor.h"
 
 int main(int argc, char **argv) {
 

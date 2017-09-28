@@ -4,8 +4,8 @@
 #include <ctype.h>
 
 
-#include "../header/xor.h"
-#include "../header/conversion.h"
+#include "xor.h"
+#include "conversion.h"
 
 
 /* The work for this challenge primarily consists of

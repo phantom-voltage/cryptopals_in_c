@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "../header/conversion.h"
+#include "conversion.h"
 
 /* The majority of the work here was done in the conversion.h header */
 

@@ -3,10 +3,9 @@
 #include <string.h>
 #include <unistd.h>
 
-
-#include "../header/conversion.h"
-#include "../header/hamming.h"
-#include "../header/xor.h"
+#include "conversion.h"
+#include "hamming.h"
+#include "xor.h"
 
 /* New functions written for this challenge in hamming.h */
 
